@@ -12,12 +12,11 @@ with open('english_language.txt', 'r', encoding='utf-8') as file:
 MORSE_CODE_DICT = ''
 
 
-def language_choose():
+def language_choose(text_language):
     global MORSE_CODE_DICT
-    text_laguage = input('ru/en')
-    if text_laguage == 'ru':
+    if text_language == 'ru':
         MORSE_CODE_DICT = russian_text
-    if text_laguage == 'en':
+    if text_language == 'en':
         MORSE_CODE_DICT = english_text
 
 
@@ -40,19 +39,12 @@ def morse_to_russian(morse_code):
     return russian_text
 
 def translate_text(text):
-    if text.lower() == 'exit' or text.lower() == 'quit':
-        return False
-    elif text.startswith('.') or text.startswith('-'):
+
+    if text.startswith('.') or text.startswith('-'):
         translated_text = morse_to_russian(text)
-        print(f'Translated text: {translated_text}')
+        return (f'Translated text: {translated_text}')
     else:
         morse_code = russian_to_morse(text)
-        print(f'Morse_code: {morse_code}')
-    return True
-language_choose()
-while True:
+        return f'Morse_code: {morse_code}'
 
-    user_input = input('Enter text in Russian or Morse_code (enter "exit" to quit):')
-    if not translate_text(user_input):
-        break
-    language_choose()
+

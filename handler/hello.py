@@ -5,20 +5,21 @@ from loader import router
 
 @router.message(Text("кнопка 1"))
 async def hallo(message: types.Message):
+    user_input = message.text
     await message.answer(text='вы выбрали кнопку 1')
 
 @router.message(Text("кнопка 2"))
 async def hallo(message: types.Message):
     await message.answer(text='вы выбрали кнопку 2')
-
-
-@router.message(Text(contains='привет'))
-async def hello(message: types.Message):
-    await message.answer(text='привет')
-
-@router.message(Text(contains='пока'))
-async def poko(message: types.Message):
-    await message.answer(text='пока')
+#
+#
+# @router.message(Text(contains='привет'))
+# async def hello(message: types.Message):
+#     await message.answer(text='привет')
+#
+# @router.message(Text(contains='пока'))
+# async def poko(message: types.Message):
+#     await message.answer(text='пока')
 
 kb = [
 
